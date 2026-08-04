@@ -49,8 +49,10 @@ export function useCollection<T extends DocumentData>(
     )
 
     return () => unsubscribe()
+    // Individual constraints must be memoized by the caller (e.g. useMemo) —
+    // the rest-param array itself is always a fresh reference per call.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [collectionRef])
+  }, [collectionRef, ...queryConstraints])
 
   return { data, loading, error }
 }

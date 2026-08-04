@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import { where } from 'firebase/firestore'
 import { useCollection } from '@/hooks/useFirestore'
 import { useAuth } from '@/hooks/useAuth'
@@ -9,10 +10,9 @@ import { EmptyState } from '@/components/shared/EmptyState'
 
 export function NotesList() {
   const { user } = useAuth()
-  const { data: notes, loading } = useCollection(
-    getNotesCollection(),
-    where('uid', '==', user?.uid ?? '')
-  )
+  const notesRef = useMemo(() => getNotesCollection(), [])
+  const uidFilter = useMemo(() => where('uid', '==', user?.uid ?? ''), [user?.uid])
+  const { data: notes, loading } = useCollection(notesRef, uidFilter)
 
   if (loading) return <LoadingSpinner />
   if (notes.length === 0) return <EmptyState title="No notes yet" />
