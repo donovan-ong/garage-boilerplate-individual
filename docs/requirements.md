@@ -35,7 +35,6 @@ The following visual aspects of the Login Page may be changed:
 - Colours
 - Button styling
 - Input field styling
-- Responsive layout for different screen sizes
 
 ## Out of Scope
 
@@ -53,7 +52,7 @@ No changes should be made to the existing authentication or session logic.
 
 The design and implementation should account for the following cases:
 
-1. Missing photo: If a team member does not have a photo, a default placeholder image should be displayed instead.
+1. Missing photo If a team member does not have a photo, a default placeholder image should be shown. If the photo or placeholder does not load, the alt text should provide a description of the image.
 2. Long member name: Long member names should wrap correctly and must not break or extend outside the member section or card.
 3. Long role name: Long role names should remain readable and stay within the member section or card without causing the layout to break.
 4. Long blurb: Long blurb text should wrap correctly and must not overflow outside its container.
