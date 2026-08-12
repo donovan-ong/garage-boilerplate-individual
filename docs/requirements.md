@@ -15,9 +15,8 @@ The team page needs two fields for the team as a whole, plus four fields for eac
 | Field | Required | Rule |
 |---|---|---|
 | Team name | Yes | Shown once at the top of the page, above the list of team members. Cannot be left blank. |
-| Project name | Yes | Shown near the team name, identifying which project the team is working on. Cannot be left blank. |
-| Member Name | Yes | Shown as a heading below the photo. The name is required, display clearly for every team member  |
-| Member Photo |Yes | Display the member's photo; if unavailable, display a placeholder|
+| Member Name | Yes | The name is required and must be displayed clearly for every team member.  |
+| Member Photo |Yes | Display the member's photo (see Edge Cases §4 for missing photo / placeholder / alt text handling).|
 | Member Role | Yes | The person's role on the team, e.g. "Developer" or "Business Analyst". Displayed under name in smaller, muted text. |
 | Short Blurb |Yes | Display a short description of the team member
 
