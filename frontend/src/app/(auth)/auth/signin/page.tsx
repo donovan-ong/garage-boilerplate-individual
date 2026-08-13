@@ -10,6 +10,19 @@ import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, type LoginInput } from '@/lib/validations/auth'
 import { FullPageSpinner } from '@/components/shared/LoadingSpinner'
 
+/**
+ * Reads proxy.ts's `redirect` param and returns it only if it's a safe,
+ * same-site path — guards against an open redirect via `//evil.com` or
+ * similar in the query string.
+ */
+function getPostSignInRedirect(): string {
+  const redirect = new URLSearchParams(window.location.search).get('redirect')
+  if (redirect && redirect.startsWith('/') && !redirect.startsWith('//')) {
+    return redirect
+  }
+  return '/dashboard'
+}
+
 export default function SignInPage() {
   const router = useRouter()
   const { user, loading, signInWithEmail, signInWithGoogle } = useAuth()
@@ -24,7 +37,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace('/dashboard')
+      router.replace(getPostSignInRedirect())
     }
   }, [loading, user, router])
 
@@ -41,7 +54,7 @@ export default function SignInPage() {
     try {
       await signInWithEmail(data.email, data.password)
       toast.success('Signed in successfully')
-      router.replace('/dashboard')
+      router.replace(getPostSignInRedirect())
       router.refresh()
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('email-not-verified')) {
@@ -55,7 +68,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace('/dashboard')
+      router.replace(getPostSignInRedirect())
     } catch {
       toast.error('Google sign-in failed. Please try again.')
     }
