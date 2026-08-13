@@ -4,7 +4,7 @@ import type { TeamMember } from '../types'
 export function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
     <div className="flex overflow-hidden rounded-[15px] border-2 border-[#8AAEE0] bg-[#F0F3FA]">
-      <div className="relative w-48 shrink-0 sm:w-56">
+      <div className="relative aspect-square w-48 shrink-0 self-start sm:w-56">
         <Image
           src={member.photo}
           alt={member.name}
