@@ -17,9 +17,9 @@ export function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="hidden lg:flex w-60 flex-col border-r border-[#B1C9EF] bg-[#D5DEEF]">
-      <div className="flex h-14 items-center px-4 border-b border-[#B1C9EF]">
-        <span className="font-baloo text-sm font-bold text-[#395886]">
+    <aside className="hidden lg:flex w-60 flex-col border-r border-brand-300 bg-brand-200">
+      <div className="flex h-14 items-center px-4 border-b border-brand-300">
+        <span className="font-baloo text-sm font-bold text-brand-900">
           {process.env.NEXT_PUBLIC_APP_NAME ?? 'App'}
         </span>
       </div>
@@ -33,8 +33,8 @@ export function Sidebar() {
               className={cn(
                 'flex items-center gap-3 rounded-[10px] px-3 py-2 text-sm font-semibold transition-colors',
                 isActive
-                  ? 'bg-[#638ECB] text-[#F3F3F3]'
-                  : 'text-[#395886] hover:bg-[#B1C9EF]'
+                  ? 'bg-brand-500 text-neutral-100'
+                  : 'text-brand-900 hover:bg-brand-300'
               )}
             >
               <Icon className="h-4 w-4 shrink-0" />

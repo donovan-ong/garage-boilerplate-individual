@@ -11,8 +11,8 @@ export default async function TeamPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-baloo text-[32px] font-bold text-[#395886]">Meet our Team</h1>
-        <p className="font-baloo text-[18px] font-bold text-[#638ECB]">{teamName}</p>
+        <h1 className="font-baloo text-[32px] font-bold text-brand-900">Meet our Team</h1>
+        <p className="font-baloo text-[18px] font-bold text-brand-500">{teamName}</p>
       </div>
 
       <div className="space-y-5">

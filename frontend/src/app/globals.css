@@ -13,6 +13,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Blue palette — frontend/design/style_guide.jpg. Currently used by the
+   dashboard shell and team page; the login page still uses raw hex values
+   pending its own refactor onto these tokens. */
+@theme {
+  --color-brand-50: #f8fafe;
+  --color-brand-100: #f0f3fa;
+  --color-brand-200: #d5deef;
+  --color-brand-300: #b1c9ef;
+  --color-brand-400: #8aaee0;
+  --color-brand-500: #638ecb;
+  --color-brand-600: #5174b0;
+  --color-brand-900: #395886;
+
+  --color-neutral-100: #f3f3f3;
+  --color-neutral-900: #222222;
+
+  --font-baloo: 'Baloo Thambi 2', 'Anek Latin', Arial, Helvetica, sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -24,8 +43,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Anek Latin', Arial, Helvetica, sans-serif;
-}
-
-.font-baloo {
-  font-family: 'Baloo Thambi 2', 'Anek Latin', Arial, Helvetica, sans-serif;
 }
