@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { cn, truncate } from '@/lib/utils'
+import { cn, truncate, getSafeRedirect } from '@/lib/utils'
 
 describe('cn', () => {
   it('merges class names', () => {
@@ -26,5 +26,45 @@ describe('truncate', () => {
 
   it('returns full string when exactly at limit', () => {
     expect(truncate('hello', 5)).toBe('hello')
+  })
+})
+
+describe('getSafeRedirect', () => {
+  it('returns the redirect path when it is a safe same-site path', () => {
+    expect(getSafeRedirect('?redirect=%2Fteam')).toBe('/team')
+  })
+
+  it('falls back to /dashboard when there is no redirect param', () => {
+    expect(getSafeRedirect('')).toBe('/dashboard')
+  })
+
+  it('falls back to a custom default when given one', () => {
+    expect(getSafeRedirect('', '/notes')).toBe('/notes')
+  })
+
+  it('rejects a protocol-relative redirect (open redirect via //)', () => {
+    expect(getSafeRedirect('?redirect=%2F%2Fevil.com')).toBe('/dashboard')
+  })
+
+  it('rejects a redirect that does not start with a slash', () => {
+    expect(getSafeRedirect('?redirect=evil.com')).toBe('/dashboard')
+  })
+
+  it('rejects an absolute external URL', () => {
+    expect(getSafeRedirect('?redirect=https%3A%2F%2Fevil.com')).toBe('/dashboard')
+  })
+
+  describe('sign-in default of /team', () => {
+    it('falls back to /team when there is no redirect param (plain sign-in happy path)', () => {
+      expect(getSafeRedirect('', '/team')).toBe('/team')
+    })
+
+    it('still honors an explicit redirect param over the /team fallback (bounced sign-in)', () => {
+      expect(getSafeRedirect('?redirect=%2Fnotes', '/team')).toBe('/notes')
+    })
+
+    it('rejects an unsafe redirect param even with /team as fallback', () => {
+      expect(getSafeRedirect('?redirect=%2F%2Fevil.com', '/team')).toBe('/team')
+    })
   })
 })
