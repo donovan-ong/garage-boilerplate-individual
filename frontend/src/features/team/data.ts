@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Donovan Ong',
     role: 'Dev',
-    bio: "Hi, I'm Donovan, one of the developers on the team. I'm a final-year Bachelor of Computer Science student at RMIT, majoring in AI and Enterprise Systems Development. My interest in autonomous systems and machine learning comes from my work at the Defence Science and Technology Group, where I built a Python-based behaviour engine for autonomous drones. I'm especially interested in building AI systems that are capable, explainable, and trustworthy.",
+    bio: "Hi, I'm Donovan, one of the developers on the team. I'm a final-year Bachelor of Computer Science student at RMIT, majoring in AI and Enterprise Systems Development. My interest in autonomous systems and machine learning comes from my work at the Defence Science and Technology Group, where I built a Python-based behaviour engine for autonomous drones.",
     photo: imagePlaceholder,
   },
 ]
