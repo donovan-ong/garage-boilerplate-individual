@@ -30,6 +30,8 @@
   --color-neutral-900: #222222;
 
   --font-baloo: 'Baloo Thambi 2', 'Anek Latin', Arial, Helvetica, sans-serif;
+
+  --shadow-card: 0 4px 12px rgba(57, 88, 134, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
