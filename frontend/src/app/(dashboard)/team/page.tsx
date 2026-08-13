@@ -15,7 +15,7 @@ export default async function TeamPage() {
         <p className="font-baloo text-[18px] font-bold text-brand-500">{teamName}</p>
       </div>
 
-      <div className="max-w-[800px] space-y-5">
+      <div className="max-w-[1000px] space-y-5">
         {teamMembers.map((member) => (
           <TeamMemberCard key={member.name} member={member} />
         ))}
