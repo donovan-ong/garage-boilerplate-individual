@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Donovan Ong',
     role: 'Dev',
-    bio: 'Donovan Ong is a final-year Bachelor of Computer Science student at RMIT University, majoring in Artificial Intelligence and Enterprise Systems Development. His interest in autonomous systems and machine learning stems from his work at the Defence Science and Technology Group, where he developed a Python-based behaviour engine for autonomous platforms including drones and unmanned aerial systems, integrating AI-driven decision-making through behaviour tree architectures. Alongside this, he has applied machine learning to real-world prediction problems, exploring model selection, regularisation, and evaluation rigour across applied datasets. He is particularly interested in how software engineering and AI combine to build systems that are not only capable but explainable and trustworthy.',
+    bio: "Hi, I'm Donovan, one of the developers on the team. I'm a final-year Bachelor of Computer Science student at RMIT, majoring in AI and Enterprise Systems Development. My interest in autonomous systems and machine learning comes from my work at the Defence Science and Technology Group, where I built a Python-based behaviour engine for autonomous drones. I'm especially interested in building AI systems that are capable, explainable, and trustworthy.",
     photo: imagePlaceholder,
   },
 ]
