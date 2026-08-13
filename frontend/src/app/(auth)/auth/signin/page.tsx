@@ -63,19 +63,23 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[580px] scale-110 rounded-[15px] border-4 border-[#395886] bg-[#F8FAFE] px-8 py-6 shadow-[0_20px_50px_rgba(57,88,134,0.16)]">
+    <div className="mx-auto w-full max-w-[580px] scale-110 rounded-[15px] border-4 border-brand-900 bg-brand-50 px-8 py-6 shadow-2xl">
       <div className="space-y-1 text-center">
-        <h1 className="text-[36px] leading-[48px] font-semibold tracking-tight text-[#395886] font-baloo">Sign In</h1>
-        <p className="text-[15px] leading-[22px] font-semibold text-[#638ECB] font-baloo">Enter your credentials to continue</p>
+        <h1 className="font-baloo text-[36px] font-semibold leading-[48px] tracking-tight text-brand-900">
+          Sign In
+        </h1>
+        <p className="font-baloo text-[15px] font-semibold leading-[22px] text-brand-500">
+          Enter your credentials to continue
+        </p>
       </div>
 
       <div className="mt-5 space-y-4">
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="relative mx-auto flex h-[45px] w-[275px] items-center justify-center rounded-[15px] bg-[#638ECB] px-4 transition-colors hover:bg-[#5174b0]"
+          className="relative mx-auto flex h-[45px] w-[275px] items-center justify-center rounded-[15px] bg-brand-500 px-4 transition-colors hover:bg-brand-600"
         >
-          <span className="font-baloo text-[18px] leading-[28px] font-bold text-[#F3F3F3]">
+          <span className="font-baloo text-[18px] font-bold leading-[28px] text-neutral-100">
             Continue with Google
           </span>
           <svg className="absolute right-4 h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
@@ -99,25 +103,28 @@ export default function SignInPage() {
         </button>
 
         <div className="flex items-center justify-center gap-3">
-          <span className="h-px w-[200px] bg-[#8AAEE0]" aria-hidden="true" />
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#8AAEE0]">OR</span>
-          <span className="h-px w-[200px] bg-[#8AAEE0]" aria-hidden="true" />
+          <span className="h-px w-[200px] bg-brand-300" aria-hidden="true" />
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-300">OR</span>
+          <span className="h-px w-[200px] bg-brand-300" aria-hidden="true" />
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="mx-auto w-[460px] max-w-full space-y-4 flex flex-col items-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="mx-auto flex w-[460px] max-w-full flex-col items-center space-y-4">
           {/* Email Field */}
-          <div className="w-full space-y-1">
-            <label htmlFor="email" className="text-[15px] font-semibold text-[#638ECB]">
+          <div className="group w-full space-y-1">
+            <label
+              htmlFor="email"
+              className="text-[15px] font-semibold text-brand-900 transition-colors group-focus-within:text-brand-500"
+            >
               Email
             </label>
-            <div className="flex h-[45px] w-full items-center rounded-[15px] border-2 border-[#638ECB] bg-[#F0F3FA] px-4 transition-colors focus-within:border-[#395886]">
+            <div className="flex h-[45px] w-full items-center rounded-[15px] border-2 border-brand-900 bg-brand-100 px-4 transition-colors focus-within:border-brand-500">
               <input
                 id="email"
                 type="email"
                 autoComplete="email"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
-                className="h-full w-full bg-transparent text-[18px] font-normal text-[#395886] placeholder:text-[#999999] focus:outline-none"
+                className="h-full w-full bg-transparent text-[18px] font-normal text-brand-900 placeholder:text-neutral-900/60 focus:outline-none"
                 placeholder="you@example.com"
                 {...register('email')}
               />
@@ -130,18 +137,21 @@ export default function SignInPage() {
           </div>
 
           {/* Password Field */}
-          <div className="w-full space-y-1">
-            <label htmlFor="password" className="text-[15px] font-semibold text-[#395886]">
+          <div className="group w-full space-y-1">
+            <label
+              htmlFor="password"
+              className="text-[15px] font-semibold text-brand-900 transition-colors group-focus-within:text-brand-500"
+            >
               Password
             </label>
-            <div className="flex h-[45px] w-full items-center rounded-[15px] border-2 border-[#638ECB] bg-[#F0F3FA] px-4 transition-colors focus-within:border-[#395886]">
+            <div className="flex h-[45px] w-full items-center rounded-[15px] border-2 border-brand-900 bg-brand-100 px-4 transition-colors focus-within:border-brand-500">
               <input
                 id="password"
                 type="password"
                 autoComplete="current-password"
                 aria-invalid={!!errors.password}
                 aria-describedby={errors.password ? 'password-error' : undefined}
-                className="h-full w-full bg-transparent text-[18px] font-normal text-[#395886] placeholder:text-[#999999] focus:outline-none"
+                className="h-full w-full bg-transparent text-[18px] font-normal text-brand-900 placeholder:text-neutral-900/60 focus:outline-none"
                 placeholder="••••••••"
                 {...register('password')}
               />
@@ -156,15 +166,15 @@ export default function SignInPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="block h-[42px] w-[245px] rounded-[8px] bg-[#638ECB] px-4 text-[18px] font-bold text-[#F3F3F3] transition-colors hover:bg-[#5174b0] disabled:cursor-not-allowed disabled:opacity-60 font-baloo"
+            className="font-baloo block h-[42px] w-[245px] rounded-[8px] bg-brand-500 px-4 text-[18px] font-bold text-neutral-100 transition-colors hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
 
-        <p className="mx-auto mt-2 w-full text-center text-sm font-semibold text-[#395886]">
-          <span className="text-[#638ECB]">Don&apos;t have an account? </span>
-          <Link href="/auth/signup" className="text-[#395886] font-baloo">
+        <p className="mx-auto mt-2 w-full text-center text-sm font-semibold text-brand-900">
+          <span className="text-brand-500">Don&apos;t have an account? </span>
+          <Link href="/auth/signup" className="font-baloo text-brand-900">
             Create one
           </Link>
         </p>
